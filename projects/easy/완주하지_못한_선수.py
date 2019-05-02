@@ -1,5 +1,3 @@
-
-import copy
 def un_completed_participant(participant, completion):
 
     if len(participant) > 100000 or len(participant) < 1:
