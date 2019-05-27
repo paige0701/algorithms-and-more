@@ -1,17 +1,29 @@
 def find_gcm(a,b):
-    if a % b != 0:
-        a, b = b, a % b
-        find_gcm(a,b)
-    else:
-        print(b)
+
+    if a > b:
+        a,b = b,a
+
+    for x in range(a, 0, -1) :
+        if a%x == 0 and b%x == 0:
+            return x
 
 def find_lcm(a,b):
-    return ''
+
+    if a > b:
+        a,b = b,a
+
+    for x in range(b, a*b+1, b):
+        if x % a == 0:
+            return x
+
 
 def main():
-    a = 192
-    b = 72
-    find_gcm(a, b)
+    a = 72
+    b = 192
+    print(find_lcm(a,b))
+    print(find_gcm(a, b))
+
+
 
 
 if __name__ == '__main__':
