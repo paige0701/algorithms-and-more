@@ -1,5 +1,19 @@
-# algorithm-programmers
-Programmers.co.kr 에서 풀고 있는 알고리즘 문제들
-Easy 부터 시작
+## Solve algorithms 
 
-Using python3
+
+#### Websites
+* Programmers.co.kr
+* leetcode.com
+
+#### Languages
+* python3
+
+
+<hr>
+
+
+## Study data structures
+
+#### Data structures
+* Queue : Linear queue, circular queue
+
