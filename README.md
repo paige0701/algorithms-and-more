@@ -15,6 +15,12 @@
 ## Study data structures
 
 #### Data structures
-* Linear queue
-* Circular queue
+ 
+- QUEUE
+  * Linear 
+  * Circular queue
+  
+- LINKED LIST
+  * Singly linked list
+
 
