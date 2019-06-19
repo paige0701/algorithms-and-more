@@ -33,10 +33,35 @@ class LinkedList(object):
 
 
     # Time complexity is O(1)
-    def insert(self, data):
+    def insert_at_start(self, data):
         new_node = Node(data)
         new_node.set_next(self.head)
         self.head = new_node
+
+    def insert_at_end(self, data):
+        new_node = Node(data)
+        if self.head is None:
+            self.head = new_node
+            return
+        n = self.head
+        while n.get_next() is not None:
+            n = n.get_next()
+        n.set_next(new_node)
+
+    def insert_after_item(self, x, data):
+        n = self.head
+        while n is not None:
+            if n.data == data:
+                break
+            n = n.get_next()
+
+        if n is None:
+            print('item not in the list')
+        else:
+            new_node = Node(data)
+            new_node.set_next(n.get_next())
+            n.set_next(new_node)
+
 
     # Time complexity is O(n) -> each time method is called,
     # it will always visit every node in the list but only interact with them once, so n* 1 operations
@@ -69,19 +94,44 @@ class LinkedList(object):
         current = self.head
 
         previous = None
-        found = False
 
-        while current and found is False:
-            if current.get_data == data:
-                found = True
-            else:
+        while current:
+            if current.get_data() == data:
+                # 찾음
+                if previous:
+                    previous.set_next(current.get_next())
+                else:
+                    self.head = current.get_next()
+                return True
+            else :
                 previous = current
                 current = current.get_next()
 
-        if current is None:
-            raise ValueError('Data not in the list')
+        return False
 
-        if previous is None:
-            self.head = current.get_next()
-        else :
-            previous.set_next(current.get_next())
+
+    def print_list(self):
+        if self.head is None:
+            return 'Linked list is empty'
+        else:
+            n = self.head
+            l = []
+            while n is not None:
+                l.append(n.get_data())
+                n = n.get_next()
+
+            return l
+
+if __name__ == '__main__':
+
+    linked_list = LinkedList()
+    linked_list.insert_at_start(3)
+    linked_list.insert_at_start(2)
+    linked_list.insert_at_start(4)
+    linked_list.delete(2)
+    linked_list.insert_at_start(5)
+    linked_list.insert_at_start(1)
+    linked_list.insert_at_start(7)
+    linked_list.insert_at_start(9)
+    linked_list.delete(22)
+    print(linked_list.print_list())
