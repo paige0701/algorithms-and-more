@@ -5,11 +5,10 @@ class Solution:
 
     def height_checker(self, heights):
 
-        cloned_height = deepcopy(heights)
+        cloned_height = deepcopy(heights) # this is slowest
         cloned_height = heights[:] # this is faster than deep copy
         cloned_height = sorted(heights) # this is fastest !
 
-        heights.sort()
         count = 0
 
         for i in range(len(heights)):
