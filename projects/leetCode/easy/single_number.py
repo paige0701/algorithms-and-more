@@ -7,6 +7,17 @@ def find_single_number(nums):
 
 
     # using bit manipulation
+
+    """
+
+    0 ^ 1 = 1
+    1 ^ 1 = 0
+
+    that is why ^= returns a unique number.
+    so clever!
+
+    """
+
     # a = 0
     # for i in nums:
     #     a^=i
