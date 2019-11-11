@@ -32,6 +32,8 @@ def findPeakUtil(arr, low, high, n):
     mid = low + (high - low) / 2
     mid = int(mid)
 
+    print('mid ', mid)
+
 
     # Compare middle element with its
     # neighbours (if neighbours exist)
@@ -56,6 +58,17 @@ def findPeakUtil(arr, low, high, n):
         return findPeakUtil(arr, (mid + 1), high, n)
 
 
+def find_a_peak_index(A):
+    l, r = 0, len(A) - 1
+    while l < r:
+        m = (l + r) // 2
+        if A[m] < A[m + 1]:
+            l = m + 1
+        else:
+            r = m
+    return l
+
+
 # A wrapper over recursive
 # function findPeakUtil()
 def findPeak(arr, n):
@@ -63,9 +76,8 @@ def findPeak(arr, n):
 
 
 if __name__ == '__main__':
-    li = [1,2,3,3,5, 2,1,0]
-    n = len(li)
-    print(findPeak(li, n))
+    li = [0,1,2,3,4,1,0]
+    print(find_a_peak_index(li))
 
 
 
@@ -82,6 +94,4 @@ base case = T(1) = O(1)
 T(n) = O(1) ... + O(1) == log n times = O(log2n)
 
 """
-#
-#
 
