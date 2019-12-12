@@ -6,7 +6,7 @@
 
 
 Representational state transfer
-Http URI를 통해 자우너을 명시하고 HTTP method를 통해 해당 자원에 대한 CRUD operation
+Http URI를 통해 자원을 명시하고 HTTP method를 통해 해당 자원에 대한 CRUD operation
 을 저용하는 것을 의미한다.
 
 #### REST 구성
