@@ -1,3 +1,38 @@
+"""
+-BINARY SEARCH-
+
+*** in order to use binary search, list must be sorted ***
+
+- HOW BINARY SEARCH WORKS ?
+
+target_number = 7
+a = [1,2,3,4,5,6,7,8]
+
+find the middle index of a list
+
+if middle index value of list is smaller than the number you are looking for,
+than remove the array items before middle index
+
+so middle index is 3, 7 is in a2
+a1 = [1,2,3,4] a2 = [5,6,7,8]
+
+so remove a1
+
+a = [5,6,7,8]
+
+find the middle index again
+a1 = [5,6] a2 = [7,8]
+
+number 7 is in a2 so remove a1 .. and so on
+
+
+
+- RUNNING TIME OF BINARY SEARCH
+
+O(log n)
+
+"""
+
 def search(arr, target_value):
     l = 0
     r = len(arr)-1
