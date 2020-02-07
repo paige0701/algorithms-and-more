@@ -48,6 +48,21 @@ def search(arr, target_value):
     return -1
 
 
+def search_recursive(li, target, low, high):
+
+    if low > high:
+        return False
+    else :
+
+        mid = (low+high)//2
+
+        if li[mid] == target:
+            return mid
+        elif li[mid] > target:
+           return search_recursive(li, target, low, mid-1)
+        elif li[mid] < target:
+            return search_recursive(li, target, mid+1, high)
+
 
 if __name__ == '__main__':
 
@@ -55,4 +70,9 @@ if __name__ == '__main__':
               41, 43, 47, 53, 59, 61, 67, 71, 73, 79, 83, 89, 97]
 
     print("found index at ",search(primes, 73))
+
     assert search(primes, 222) == -1
+
+    print(search_recursive(primes, 13, 0, len(primes) - 1))
+
+
