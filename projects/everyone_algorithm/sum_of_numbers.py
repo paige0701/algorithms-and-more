@@ -21,8 +21,12 @@ def find_biggest(li, num):
     else:
         return li[num-1]
 
+def sum_of_1_to_n(n):
+    return int((n+1)*(n/2))
+
 
 
 if __name__ == '__main__':
-    print(sum(5))
+    print(sum(8))
     print(find_biggest([1,52,3,4,5], 5))
+    print(sum_of_1_to_n(8))
