@@ -1,3 +1,35 @@
+"""
+selection sort
+
+ ↓
+[2, 3 ,15 ,7 ,20 ,1]
+from sub array == [3, 15, 7, 20, 1] find a smallest number
+smallest number is 1 so swap 2 and 1
+
+    ↓
+[1, 3, 15, 7, 20, 2]
+from sub array == [15, 7, 20, 2] find a smallest number
+smallest number is 2 so swap 3 and 2
+
+        ↓
+[1, 2, 15, 7, 20, 3]
+from sub array == [7, 20, 3] find a smallest number
+smallest number is 3 so swap 15 and 3
+
+          ↓
+[1, 2, 3, 7, 20, 15] ....
+
+
+looping through list = linear time
+swapping = linear
+finding min index = exponential
+
+most significant is exponential
+
+selection sort is O(n^2)
+
+"""
+
 def swap(li, first, second):
     li[first], li[second] = li[second], li[first]
 
