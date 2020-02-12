@@ -23,6 +23,20 @@ def first_character(string):
 def last_character(string):
     return string[-1]
 
+
+def fib(n):
+    """
+    fibonacci starts from two ones
+    1, 1, 2, 3, 5, 8, 13
+
+
+    """
+    if n == 1 or n == 2:
+        return 1
+    else:
+        return fib(n-1) + fib(n-2)
+
 if __name__ == '__main__':
     print(factorial(5))
     print(is_palindrome('xyzzyxx'))
+    print(fib(6))
