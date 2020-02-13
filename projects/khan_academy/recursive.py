@@ -40,6 +40,22 @@ def fib(n):
     else:
         return fib(n-1) + fib(n-2)
 
+
+def fib_with_memoization(n):
+    a = [None] * (n+1)
+    return fib2(n, a)
+
+def fib2(n, memo):
+
+    if memo[n] is not None:
+        return memo[n]  # None 이 아니면 이미 값이 있다는 것이기 때문에 그 값을 그냥 쓰면 된다.
+    if n == 0 or n == 1:
+        result = 1
+    else:
+        result = fib2(n-1, memo) + fib2(n-2, memo)
+    memo[n] = result
+
+
 def num_of_ways(n):
     """
 
@@ -63,3 +79,4 @@ if __name__ == '__main__':
     print(fib(5))
     print(fib(10))
     print(num_of_ways(11))
+    print(fib_with_memoization(2))
