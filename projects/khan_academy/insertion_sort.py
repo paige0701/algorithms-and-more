@@ -3,6 +3,23 @@ Time complexity of insertion sort :
 worst case : O(n^2)
 best case : O(n)
 
+a = [2, 10, 8, 3, 5]
+
+   ←↓
+[2, 10, 8, 3, 5]
+
+       ←↓
+[2, 10, 8, 3, 5]
+
+           ←↓
+[2, 8, 10, 3, 5]
+
+              ←↓
+[2, 3, 8, 10, 5]
+
+
+[2, 3, 5, 8, 10]
+
 """
 
 def insertion_element_in_the_array(li, target):
