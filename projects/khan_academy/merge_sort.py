@@ -14,4 +14,37 @@ how  merge sort works?
       [3, 7, 12, 14]       [2, 6, 9, 11]
                 ↘️          ↙️              merge
          [2, 3, 6, 7, 9, 11, 12, 14]
+
+
+how to merge actually work?
+
+ i       j
+ ↓       ↓
+[7, 14] [3, 12]
+
+compare i and j find smaller number
+
+[3]
+
+
+increment j
+
+ i           j
+ ↓           ↓
+[7, 14] [3, 12]
+
+compare i and j get smaller number
+
+[3, 7]
+
+increment i
+    i        j
+    ↓        ↓
+[7, 14] [3, 12]
+
+compare i and j get smaller number
+[3, 7, 12, 14]
+
+
+
 """
