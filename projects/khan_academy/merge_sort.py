@@ -45,6 +45,12 @@ increment i since i was smaller than j
 compare i and j get smaller number
 [3, 7, 12, 14]
 
+
+
+Running time of merge sort algorithm is O(n Log 2 n)
+it is important to note that merge sort does not sort in place
+It needs an extra space for storing temporary low half and high half
+
 """
 
 def merge_sort(arr):
