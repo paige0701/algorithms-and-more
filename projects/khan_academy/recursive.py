@@ -1,9 +1,42 @@
 def factorial(n):
+
+    """
+            return      state
+
+    F(5)    5 * F(4)    Pause
+    F(4)    4 * F(3)    Pause
+    F(3)    3 * F(2)    Pause
+    F(2)    2 * F(1)    Pause
+    F(1)    1 * F(0)    Pause
+    F(0)    1
+    F(1)    1 * 1       Resume
+    F(2)    2 * 1       Resume
+    F(3)    3 * 2       Resume
+    F(4)    4 * 6       Resume
+    F(5)    5 * 24      Resume
+
+    = 120
+
+    """
+
+
+    print('iam calculating ', n , '\n')
     if n == 0:
         return 1
-    return n * factorial(n-1)
+    f = n * factorial(n-1)
+    print('F(',n,') is ', f)
+    return f
 
 def is_palindrome(string):
+
+    """
+    TO check if a string is a palindrome, reversed string must be same
+    reverse a 'appa' it's same so 'appa; is a palindrome
+
+
+    a = 'appa'
+    a[::-1] to reverse a list
+    """
 
     # base case 1 - if string length is 0 or 1, it is palindrome
     if len(string) <= 1:
@@ -75,8 +108,8 @@ def num_of_ways(n):
 
 if __name__ == '__main__':
     print(factorial(5))
-    print(is_palindrome('xyzzyxx'))
-    print(fib(5))
-    print(fib(10))
-    print(num_of_ways(11))
-    print(fib_with_memoization(2))
+    # print(is_palindrome('xyzzyxx'))
+    # print(fib(5))
+    # print(fib(10))
+    # print(num_of_ways(11))
+    # print(fib_with_memoization(2))
