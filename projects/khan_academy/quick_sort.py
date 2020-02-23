@@ -1,11 +1,5 @@
 """
 How Quick sort works
-
-Time complexity - O(nLogn) - average case running time
-O(n^2) - worst case scenario
-
-** most sorting done in reality are Quick SORT Algorithm !
-
                           ↓
 a = [7, 2, 1, 6, 8, 5, 3, 4]
 Choose the rightmost element for pivot
@@ -114,6 +108,27 @@ swap pIndex and pivot
 a = [2, 1, 3, 4, 8, 5, 7, 6]
 
 
+
+ANALYSIS of QUICK SORT
+
+1) Divide and conquer
+2) Recursive
+3) Not stable
+4) Time complexity - O(nLogn) - average case running time
+O(n^2) - worst case scenario
+
+** most sorting done in reality are Quick SORT Algorithm !
+
+if (start < end) :    -- C1
+    partition --  O(n) -- a*n + b
+    quickSort -- T(n/2)
+    quickSort -- T(n/2)
+
+    Best case = 2T(n/2) + an + b + c
+    remove constant nunmbers
+
+    T(n) = 2T(n/2) + c * n
+    = O(nlogn)
 
 """
 def quick_sort(array, start, end):
