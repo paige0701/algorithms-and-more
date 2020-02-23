@@ -1,32 +1,25 @@
 file_name = './data.txt'
 
-record_to_read = 'james,choi:python,javascript,c'
-
 # not recommended way
 f = open(file_name)
-
-# f_contents = f.readline()
-# marshrur,hossain:python,ruby,javascript
-
-# f_contents = f.read()
-"""
-john,doe:java,c,c++
-paige,choi:ruby,rails,java
-harry,kim:python,javascript,c
-"""
-
+# f_contents = f.read() # read all
+# f_contents = f.readline() # just read first line
 for line in f:
-    print(line.strip())
-
+    # print(line)
+    print(line.strip()) # remove empty line
 f.close()  # definitely close file when you open a file
 
-# when using open, do not need to think about closing a file
-with open(file_name) as f:
+# recommended way !!
+with open(file_name) as f: # this is context manager no need to close when using with !!
     for line in f:
         print(line.strip())
+
+
+record_to_add = 'even,choi:python,javascript,c++'
 
 # w option will overwrite all the contents in file
 # r is default option for reading a file
 # a+ option appends data
-with open(file_name, 'a+') as to_write:
-    to_write.write(record_to_read + '\n')
+with open(file_name, "a+") as to_write:
+    to_write.write(record_to_add + "\n")
+
