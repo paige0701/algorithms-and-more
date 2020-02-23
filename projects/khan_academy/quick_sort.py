@@ -66,6 +66,7 @@ pIndex  i                  pivot
 a = [7, 2, 1, 6, 8, 5, 3, 4]
 i(i) is smaller than pivot(4) so swap 7 and 2
 swap pIndex and i
+
    pIndex  i               Pivot
         ↓  ↓              ↓
 a = [2, 7, 1, 6, 8, 5, 3, 4]
@@ -115,3 +116,29 @@ a = [2, 1, 3, 4, 8, 5, 7, 6]
 
 
 """
+def quick_sort(array, start, end):
+    if start < end:
+        pivot = partition(array, start, end)
+        quick_sort(array, start, pivot-1)
+        quick_sort(array, (pivot + 1) , end)
+    return array
+
+def partition(array, start, end):
+
+    pivot = array[end]
+    i = start
+
+    for j in range(start, end):
+        if array[j] <= pivot:
+            array[i], array[j] = array[j], array[i]
+            i = i + 1
+
+
+    array[i], array[end] = array[end], array[i]
+    return i
+
+
+
+if __name__ == '__main__':
+    arr = [5,10,3,1,7, 9]
+    assert quick_sort(arr, 0, len(arr)-1) == [1, 3, 5, 7, 9, 10]
