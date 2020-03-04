@@ -20,4 +20,4 @@ class Solution:
 
 if __name__ == '__main__':
     solution = Solution()
-    print(solution.flipAndInvertImage([[1,1,0],[1,0,1],[0,0,0]])
+    print(solution.flipAndInvertImage([[1,1,0],[1,0,1],[0,0,0]]))
