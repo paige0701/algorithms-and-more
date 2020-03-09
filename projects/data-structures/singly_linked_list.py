@@ -11,7 +11,7 @@ cons:
 
 """
 
-class Node(object):
+class Node:
     def __init__(self, data=None, next_node=None):
         self.data = data
         self.next_node = next_node
@@ -27,9 +27,9 @@ class Node(object):
         self.next_node = new_next
 
 
-class LinkedList(object):
-    def __init__(self, head=None):
-        self.head = head
+class LinkedList:
+    def __init__(self):
+        self.head = None
 
 
     # Time complexity is O(1)
@@ -48,19 +48,19 @@ class LinkedList(object):
             n = n.get_next()
         n.set_next(new_node)
 
-    def insert_after_item(self, x, data):
-        n = self.head
-        while n is not None:
-            if n.data == data:
-                break
-            n = n.get_next()
+    def insert_after_data(self, x, data):
+        new_node = Node(data)
+        if self.head is None:
+            self.head = new_node
+            return
 
-        if n is None:
-            print('item not in the list')
-        else:
-            new_node = Node(data)
-            new_node.set_next(n.get_next())
-            n.set_next(new_node)
+        n = self.head
+
+        while n.get_next():
+            if n.data == x:
+                new_node.set_next(n.get_next())
+                n.set_next(new_node)
+            n = n.get_next()
 
 
     # Time complexity is O(n) -> each time method is called,
@@ -129,9 +129,10 @@ if __name__ == '__main__':
     linked_list.insert_at_start(2)
     linked_list.insert_at_start(4)
     linked_list.delete(2)
-    linked_list.insert_at_start(5)
-    linked_list.insert_at_start(1)
-    linked_list.insert_at_start(7)
-    linked_list.insert_at_start(9)
-    linked_list.delete(22)
+    linked_list.insert_after_data(4,5)
+    # linked_list.insert_at_start(5)
+    # linked_list.insert_at_start(1)
+    # linked_list.insert_at_start(7)
+    # linked_list.insert_at_start(9)
+    # linked_list.delete(22)
     print(linked_list.print_list())
