@@ -55,10 +55,24 @@ class FiveOneWay:
                 j+=1
         return True
 
+
+def six_string_compression(s1):
+    compressed = []
+    counter = 0
+    for i in range(len(s1)):
+        if i !=0 and s1[i] != s1[i-1]:
+            compressed.append(s1[i-1] + str(counter))
+            counter = 0
+        counter +=1
+    compressed.append(s1[-1] + str(counter))
+    return min(s1, ''.join(compressed), key=len)
+
+
 if __name__ == '__main__':
     # one_is_unique('abcc')
     # two_check_permutation('abc','ccc')
     # three_urlify('Mr John Smith     ')
     # print(four_palindrome_permutations('tact coa'))
-    f = FiveOneWay()
-    print(f.five_one_way('pale', 'ple'))
+    # f = FiveOneWay()
+    # print(f.five_one_way('pale', 'ple'))
+    print(six_string_compression('aaabbcc'))
