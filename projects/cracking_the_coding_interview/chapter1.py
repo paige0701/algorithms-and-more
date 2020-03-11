@@ -67,6 +67,9 @@ def six_string_compression(s1):
     compressed.append(s1[-1] + str(counter))
     return min(s1, ''.join(compressed), key=len)
 
+def nine_string_rotation(s1, s2):
+    return s2 in (s1*2)
+
 
 if __name__ == '__main__':
     # one_is_unique('abcc')
@@ -75,4 +78,5 @@ if __name__ == '__main__':
     # print(four_palindrome_permutations('tact coa'))
     # f = FiveOneWay()
     # print(f.five_one_way('pale', 'ple'))
-    print(six_string_compression('aaabbcc'))
+    # print(six_string_compression('aaabbcc'))
+    print(nine_string_rotation('waterbottle', 'erbottler'))
