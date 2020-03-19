@@ -9,7 +9,7 @@ class MyCircularQueue:
         self.maxSize = k
         self.queue = [None] * k
 
-    def enQueue(self, value: int) -> bool:
+    def enQueue(self, value: int):
         """
         Insert an element into the circular queue. Return true if the operation is successful.
         """

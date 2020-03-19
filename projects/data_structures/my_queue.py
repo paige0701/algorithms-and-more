@@ -1,16 +1,16 @@
-class Queue:
+class MQueue:
 
-    def __init__(self, max_size):
+    def __init__(self, max_size=None):
         self.queue = list()
         self.head=0
         self.tail=0
-        self.maxSize = max_size
+        self.max_size = max_size
 
 
     def enqueue(self, data):
 
         # check if the queue is full
-        if self.size() >= self.maxSize:
+        if self.size() >= self.max_size:
             return "Queue is full"
         else:
             self.queue.append(data)
@@ -39,7 +39,7 @@ class Queue:
         self.queue = list()
 
 if __name__ == '__main__':
-    q = Queue(5)
+    q = MQueue(5)
     print(q.enqueue(1))
     print(q.enqueue(2))
     print(q.enqueue(3))

@@ -122,17 +122,33 @@ class LinkedList:
 
             return l
 
-if __name__ == '__main__':
 
+def remove_dup(head):
+    li = set()
+    prev = None
+    while head is not None:
+        if head.data in li:
+            prev.next_node = head.next_node
+        else:
+            li.add(head.data)
+            prev = head
+        head = head.next_node
+    return li
+
+
+if __name__ == '__main__':
     linked_list = LinkedList()
     linked_list.insert_at_start(3)
     linked_list.insert_at_start(2)
     linked_list.insert_at_start(4)
-    linked_list.delete(2)
-    linked_list.insert_after_data(4,5)
+    linked_list.insert_at_start(2)
+    # # linked_list.delete(2)
+    # linked_list.insert_after_data(4,5)
+    #
+    print(remove_dup(linked_list.head))
+
     # linked_list.insert_at_start(5)
     # linked_list.insert_at_start(1)
     # linked_list.insert_at_start(7)
     # linked_list.insert_at_start(9)
     # linked_list.delete(22)
-    print(linked_list.print_list())
