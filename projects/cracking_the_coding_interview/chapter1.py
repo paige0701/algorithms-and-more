@@ -1,4 +1,5 @@
 import collections
+import numpy
 
 def one_is_unique(string):
     print(len(string) == len(set(string)))
@@ -70,6 +71,17 @@ def six_string_compression(s1):
 def nine_string_rotation(s1, s2):
     return s2 in (s1*2)
 
+def eight_zero_matrix(matrix):
+    pass
+
+def seven_rotate_matrix(arr):
+    # arr = arr[::-1]
+    # arr.reverse()
+    # for i in range(len(arr)):
+    #     for j in range(i):
+    #         arr[j][i], arr[i][j] = arr[i][j], arr[j][i]
+
+    return list(zip(*reversed(arr)))
 
 if __name__ == '__main__':
     # one_is_unique('abcc')
@@ -79,4 +91,6 @@ if __name__ == '__main__':
     # f = FiveOneWay()
     # print(f.five_one_way('pale', 'ple'))
     # print(six_string_compression('aaabbcc'))
-    print(nine_string_rotation('waterbottle', 'erbottler'))
+    # print(nine_string_rotation('waterbottle', 'erbottler'))
+    # print(eight_zero_matrix(3,3))
+    print(seven_rotate_matrix([[1,2,3],[4,5,6],[7,8,9]]))
