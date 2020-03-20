@@ -54,7 +54,16 @@ class LinkedList:
 
     # delete item
     def delete_item(self, data):
-        pass
+
+        if self.head is None:
+            return
+        current = self.head
+        while current.data != data:
+            current = current.next
+        prev = current.prev
+        next = current.next
+        prev.next = next
+        next.prev = prev
 
 
     def print_list(self):
@@ -77,4 +86,5 @@ if __name__ == '__main__':
     li.insert_at_start(21)
     li.insert_at_start(1)
     li.insert_at_end(100)
+    li.delete_item(21)
     li.print_list()
