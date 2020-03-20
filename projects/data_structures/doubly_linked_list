@@ -34,6 +34,29 @@ class LinkedList:
 
         self.head = new_node
 
+    # insert data before a given node
+    def insert_before_node(self, data):
+        pass
+
+    # insert data after a given node
+    def insert_after_node(self, data):
+        pass
+
+    # insert data at the end
+    def insert_at_end(self, data):
+        new_node = Node(data)
+        new_node.next = None
+        current = self.head
+        while current.next is not None:
+            current = current.next
+        current.set_next(new_node)
+        new_node.prev = current
+
+    # delete item
+    def delete_item(self, data):
+        pass
+
+
     def print_list(self):
 
         if self.head is None:
@@ -53,4 +76,5 @@ if __name__ == '__main__':
     li.insert_at_start(3)
     li.insert_at_start(21)
     li.insert_at_start(1)
+    li.insert_at_end(100)
     li.print_list()
