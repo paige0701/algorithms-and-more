@@ -136,3 +136,9 @@ if __name__ == '__main__':
     print(squared(2, 6))
     print(squared_recursive(2, 6))
     print(comma('10'))
+
+    # 내장 함수 ㅋㅋ
+    n = 990000000
+    r = format(n, ',')
+    print(r)
+
