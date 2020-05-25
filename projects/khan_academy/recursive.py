@@ -105,11 +105,34 @@ def num_of_ways(n):
     return num_of_ways(n-1) + num_of_ways(n-2)
 
 
+def squared(n, e):
+
+    result = 1
+    for i in range(e):
+        result *= n
+    return result
+
+
+def squared_recursive(n, e):
+    if e == 1:
+        return n
+    else:
+        return n * squared_recursive(n, e-1)
+
+
+def comma(s):
+    if len(s) <= 3:
+        return s
+    return comma(s[:len(s)-3]) + ',' + s[len(s)-3:]
+
 
 if __name__ == '__main__':
-    print(factorial(5))
+    # print(factorial(5))
     # print(is_palindrome('xyzzyxx'))
     # print(fib(5))
     # print(fib(10))
     # print(num_of_ways(11))
     # print(fib_with_memoization(2))
+    print(squared(2, 6))
+    print(squared_recursive(2, 6))
+    print(comma('10'))
