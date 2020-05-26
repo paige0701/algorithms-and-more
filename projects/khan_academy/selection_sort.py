@@ -30,31 +30,44 @@ selection sort is O(n^2)
 
 """
 
-def swap(li, first, second):
-    li[first], li[second] = li[second], li[first]
 
-def find_min_index(li, start_index):
+def swap(arr, first, second):
+    arr[first], arr[second] = arr[second], arr[first]
 
 
-    min_value = li[start_index]
+def find_min_index(arr, start_index):
+
+    min_value = arr[start_index]
     min_index = start_index
 
-    for i in range(start_index, len(li)):
-        if li[i] < min_value:
-            min_value = li[i]
+    for i in range(start_index, len(arr)):
+        if arr[i] < min_value:
+            min_value = arr[i]
             min_index = i
     return min_index
 
 
-def selection_sort(li):
+def selection_sort(arr):
 
-    for i in range(len(li)):
-        min_index = find_min_index(li, i)
-        swap(li, i, min_index)
-    return li
+    for i in range(len(arr)):
+        min_index = find_min_index(arr, i)
+        swap(arr, i, min_index)
+    return arr
+
+
+# using 내장 함수
+def 선택정렬(l):
+    result = []
+    while l:
+        result.append(min(l))
+        l.pop(l.index(min(l)))
+
+    return result
 
 
 if __name__ == '__main__':
-    sorted = selection_sort([2,4,5,44,22,10])
-    assert sorted == [2,4,5,10,22,44]
+    li = [2, 4, 5, 44, 22, 10]
+    sorted_result = selection_sort(li)
+    assert sorted_result == [2, 4, 5, 10, 22, 44]
 
+    print(선택정렬(li))
