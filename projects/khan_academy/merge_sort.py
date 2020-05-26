@@ -53,6 +53,8 @@ It needs an extra space for storing temporary low half and high half
 
 """
 
+
+# merge sort using pointer!
 def merge_sort(arr):
     if len(arr) > 1:
 
@@ -64,8 +66,7 @@ def merge_sort(arr):
         merge_sort(low_half)
         merge_sort(high_half)
 
-
-        i = j = k  = 0
+        i = j = k = 0
 
         while i < len(low_half) and j < len(high_half):
             if low_half[i] < high_half[j]:
@@ -76,12 +77,10 @@ def merge_sort(arr):
                 j += 1
             k += 1
 
-
         while i < len(low_half):
             arr[k] = low_half[i]
             i += 1
             k += 1
-
 
         while j < len(high_half):
             arr[k] = high_half[j]
@@ -91,7 +90,34 @@ def merge_sort(arr):
         return arr
 
 
+def merge_sort_different_way(arr):
 
-if __name__ == '__main__' :
+    result = []
+    mid = len(arr)//2
+
+    if len(arr) <= 1:
+        return arr
+
+    first_half = merge_sort_different_way(arr[:mid])
+    second_half = merge_sort_different_way(arr[mid:])
+
+    while first_half and second_half:
+
+        if first_half[0] < second_half[0]:
+            result.append(first_half.pop(0))
+        else:
+            result.append(second_half.pop(0))
+
+    while first_half:
+        result.append(first_half.pop(0))
+
+    while second_half:
+        result.append(second_half.pop(0))
+
+    return result
+
+
+if __name__ == '__main__':
     a = [38, 27, 43, 3, 9, 82, 10]
     print(merge_sort(a))
+    print(merge_sort_different_way(a))
