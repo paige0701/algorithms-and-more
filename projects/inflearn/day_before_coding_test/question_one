@@ -1,0 +1,10 @@
+def question_one():
+    code = ['   + -- + - + -   ',
+            ' + --- + - + ',
+            '   + -- + -  + -  ',
+            '   + - + - + - +  ']
+    return ''.join([chr(int(i.strip().replace(' ', '').replace('+', '1').replace('-', '0'), 2)) for i in code])
+
+
+if __name__ == '__main__':
+    print(question_one())
