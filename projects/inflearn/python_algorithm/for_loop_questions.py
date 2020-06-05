@@ -18,7 +18,12 @@ def get_sum():
 
 def find_all_divisor():
     num = int(input('Insert a number'))
-    return list(filter(lambda x: x% 2 == 0, [i for i in range(1, num+1)]))
+    result = []
+
+    for i in range(1, num+1):
+        if num % i == 0:
+            result.append(i)
+    return result
 
 
 if __name__ == '__main__':
