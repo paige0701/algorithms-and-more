@@ -25,7 +25,23 @@ class One:
             return -1
 
 
+class Two:
+
+    @staticmethod
+    def find_kth_smallest_number():
+        import sys
+        sys.stdin = open('k_th_smallest_number.txt', 'rt')
+        T = int(input())
+        for i in range(T):
+            n, s, e, k = map(int, input().split())
+            li = list(map(int, input().split()))
+            sorted_arr = sorted(li[s-1:e])
+            print(i+1, sorted_arr[k-1])
+
+
 if __name__ == '__main__':
 
     one = One()
-    print(one.find_kth_divisor_2(6, 5))
+    # print(one.find_kth_divisor_2(6, 5))
+    two = Two()
+    two.find_kth_smallest_number()
