@@ -39,9 +39,36 @@ class Two:
             print(i+1, sorted_arr[k-1])
 
 
+class Three:
+
+    @staticmethod
+    def find_kth_biggest_number():
+
+        """
+        1부터 100사의의 자연수가 적힌 N장의 카드를 가지고 있고, 거기서 3장을 뽑아서
+        그의 합을 기록하고 그것을 정렬해서 K번째 큰 값을 찾는 것이다..
+        """
+
+        import sys
+        sys.stdin = open('kth_biggest_number.txt', 'rt')
+        n, k = map(int, input().split())
+        a = list(map(int, input().split()))
+        s = set()  # set을 이용한 중복 제거
+        for i in range(n):
+            for j in range(i+1, n):
+                for m in range(j+1, n):
+                    s.add(a[i]+a[j]+a[m])
+        res = list(s)
+        res.sort(reverse=True)
+        print(res[k-1])
+
+
 if __name__ == '__main__':
 
     one = One()
     # print(one.find_kth_divisor_2(6, 5))
     two = Two()
     two.find_kth_smallest_number()
+
+    three = Three()
+    three.find_kth_biggest_number()
