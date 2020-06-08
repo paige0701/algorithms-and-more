@@ -154,21 +154,68 @@ class Six:
         return res
 
 
+class Seven:
+
+    @staticmethod
+    def is_prime(n):
+
+        result = True
+        if n < 2:
+            return False
+
+        if n == 2 or n == 3:
+            return result
+
+        for i in range(2, n):  # m//2+1 까지 해도 됨!
+            if n % i == 0:
+                result = False
+                break
+        return result
+
+    def get_total_prime_numbers(self, num):
+        result = 0
+        for i in range(2, num+1):
+            if self.is_prime(i):
+                result += 1
+        print(result)
+
+
+class Eight:
+
+    @staticmethod
+    def reverse(n):
+        return int(str(n)[::-1])
+
+    @staticmethod
+    def print_number_if_prime(n):
+        seven = Seven()
+        if seven.is_prime(n):
+            print(n)
+
+
 if __name__ == '__main__':
 
-    # one = One()
+    one = One()
     # print(one.find_kth_divisor_2(6, 5))
-    # two = Two()
+
+    two = Two()
     # two.find_kth_smallest_number()
-    #
-    # three = Three()
+
+    three = Three()
     # three.find_kth_biggest_number()
 
-    # four = Four()
+    four = Four()
     # four.find_rep_value()
 
     five = Five()
-    five.find_biggest_sum_from_two_dices()
+    # five.find_biggest_sum_from_two_dices()
 
     six = Six()
-    print(six.get_biggest_number_from_digit_sum())
+    # print(six.get_biggest_number_from_digit_sum())
+
+    seven = Seven()
+    # seven.get_total_prime_numbers(20)
+
+    eight = Eight()
+    for i in [32, 55, 62, 3700, 250]:
+        eight.print_number_if_prime(eight.reverse(i))
