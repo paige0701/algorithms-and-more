@@ -108,6 +108,50 @@ class Five:
         for i in d.items():
             if i[1] == m:
                 print(i[0], end=' ')
+        print()
+
+
+class Six:
+
+    @staticmethod
+    def digit_sum(num):
+
+        result = 0
+        """
+        for i in str(num):
+            result += int(i)
+        return result
+        """
+
+        # 자릿수 더하는 법!!!!!!!!!!!!!!!!!!
+        # not changing number to string than int again
+        while num > 0:
+            result = num % 10
+            num = num//10
+        return result
+
+    def get_biggest_number_from_digit_sum(self):
+        import sys
+        sys.stdin = open('digit_sum.txt', 'rt')
+        n = input()
+        li = list(map(int, input().split()))
+
+        max = 0
+        for i in li:
+            tot = self.digit_sum(i)
+            if tot > max:
+                tot = max
+                res = i
+
+        """ How i did it !"""
+        # print(n, li)
+        # result = {}
+        # for i in li:
+        #     result[i] = self.digit_sum(i)
+        # r = max(result.items(), key=lambda x: x[1])
+        # return r[1]
+
+        return res
 
 
 if __name__ == '__main__':
@@ -125,3 +169,6 @@ if __name__ == '__main__':
 
     five = Five()
     five.find_biggest_sum_from_two_dices()
+
+    six = Six()
+    print(six.get_biggest_number_from_digit_sum())
