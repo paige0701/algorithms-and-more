@@ -87,6 +87,29 @@ class Four:
         print(ave, result)
 
 
+class Five:
+
+    @staticmethod
+    def find_biggest_sum_from_two_dices():
+
+        n, m = 4, 6
+        d = {}
+
+        for i in range(1, n+1):
+            for j in range(1, m+1):
+
+                if i+j not in d:
+                    d[i+j] = 1
+                else:
+                    d[i+j] += 1
+
+        m = max(d.items(), key=lambda x: x[1])[1]
+
+        for i in d.items():
+            if i[1] == m:
+                print(i[0], end=' ')
+
+
 if __name__ == '__main__':
 
     # one = One()
@@ -97,5 +120,8 @@ if __name__ == '__main__':
     # three = Three()
     # three.find_kth_biggest_number()
 
-    four = Four()
-    four.find_rep_value()
+    # four = Four()
+    # four.find_rep_value()
+
+    five = Five()
+    five.find_biggest_sum_from_two_dices()
