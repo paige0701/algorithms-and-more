@@ -63,12 +63,39 @@ class Three:
         print(res[k-1])
 
 
+class Four:
+
+    @staticmethod
+    def find_rep_value():
+
+        import math
+        a = [65, 73, 66, 87, 92, 67, 55, 79, 75, 80]
+        ave = math.ceil(sum(a)/10)
+        min = 2147000000
+        score = 0
+        result = 0
+        for i, v in enumerate(a):
+            tmp = abs(v-ave)
+            if tmp < min:
+                min = tmp
+                score = v
+                result = i + 1
+            elif tmp == min:
+                if v > score:
+                    score = v
+                    result = i+1
+        print(ave, result)
+
+
 if __name__ == '__main__':
 
-    one = One()
+    # one = One()
     # print(one.find_kth_divisor_2(6, 5))
-    two = Two()
-    two.find_kth_smallest_number()
+    # two = Two()
+    # two.find_kth_smallest_number()
+    #
+    # three = Three()
+    # three.find_kth_biggest_number()
 
-    three = Three()
-    three.find_kth_biggest_number()
+    four = Four()
+    four.find_rep_value()
