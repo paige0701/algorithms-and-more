@@ -218,6 +218,24 @@ class Nine:
         return res
 
 
+class Ten:
+
+    @staticmethod
+    def find_sum():
+        import sys
+        sys.stdin = open('ten.txt', 'rt')
+        n = int(input())
+        result = 0
+        add_on = 1
+        for i in list(map(int, input().split())):
+            if i == 1:
+                result += add_on
+                add_on += 1
+            elif i == 0:
+                add_on = 1
+        return result
+
+
 if  __name__ == '__main__':
 
     one = One()
@@ -246,4 +264,7 @@ if  __name__ == '__main__':
     #     eight.print_number_if_prime(eight.reverse(i))
 
     nine = Nine()
-    print(nine.get_input())
+    # print(nine.get_input())
+
+    ten = Ten()
+    print(ten.find_sum())
