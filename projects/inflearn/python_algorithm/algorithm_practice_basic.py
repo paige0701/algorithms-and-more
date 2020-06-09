@@ -193,7 +193,32 @@ class Eight:
             print(n)
 
 
-if __name__ == '__main__':
+class Nine:
+
+    def get_input(self):
+        res = 0
+        import sys
+        sys.stdin = open('nine_dice.txt', 'rt')
+        n = input()
+        for i in range(int(n)):
+            tmp = input().split()
+            tmp.sort()
+            a, b, c = map(int, tmp)
+            if a == b == c:
+                money = 10000 + a* 1000
+            elif a == b or a == c:
+                money = 1000 + a * 100
+            elif b == c:
+                money = 1000 + b * 100
+            else:
+                money = c * 100
+
+            if money > res:
+                res = money
+        return res
+
+
+if  __name__ == '__main__':
 
     one = One()
     # print(one.find_kth_divisor_2(6, 5))
@@ -217,5 +242,8 @@ if __name__ == '__main__':
     # seven.get_total_prime_numbers(20)
 
     eight = Eight()
-    for i in [32, 55, 62, 3700, 250]:
-        eight.print_number_if_prime(eight.reverse(i))
+    # for i in [32, 55, 62, 3700, 250]:
+    #     eight.print_number_if_prime(eight.reverse(i))
+
+    nine = Nine()
+    print(nine.get_input())
