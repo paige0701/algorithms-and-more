@@ -39,9 +39,54 @@ class One:
             print('Yes')
 
 
+class Two:
+
+    @staticmethod
+    def extract_only_numbers_and_print_its_divisors():
+
+        import sys
+        sys.stdin = open('extract_numbers.txt', 'rt')
+        s = input()
+        li = ''
+        for i in s:
+            try:
+                s = int(i)
+                li += str(s)
+            except:
+                pass
+        print(int(li))
+
+        cnt = 0
+        for i in range(1, int(li)+1):
+            if int(li) % i == 0:
+               cnt += 1
+        print(cnt)
+
+    @staticmethod
+    def solution():
+        import sys
+        sys.stdin = open('extract_numbers.txt', 'rt')
+        s = input()
+        res = 0
+        for i in s:
+            if i.isdecimal():
+               res = res * 10 + int(i)
+
+        print(res)
+        cnt = 0
+        for i in range(1, res+1):
+            if res % i == 0:
+                cnt +=1
+        print(cnt)
+
+
+
 if __name__ == '__main__':
 
     one = One()
 
-    for i in one.get_list():
-        one.is_palindrome3(i)
+    # for i in one.get_list():
+    #     one.is_palindrome3(i)
+
+    two = Two()
+    two.solution()
