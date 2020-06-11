@@ -237,6 +237,69 @@ class Seven:
         print(res)
 
 
+class Eight:
+
+    @staticmethod
+    def hour_glass():
+        import sys
+        sys.stdin = open('list_comp/eight.txt')
+        n = int(input())
+        a = [list(map(int, input().split())) for _ in range(n)]
+        m = int(input())
+        b = [list(map(int, input().split())) for _ in range(m)]
+
+        for i in b:
+            for j in range(i[2]):
+                if i[1] == 1:
+                    b = a[i[0]-1].pop()
+                    a[i[0] - 1].insert(0, b)
+                else:
+                    b = a[i[0]-1].pop(0)
+                    a[i[0] - 1].append(b)
+        l = 0
+        r = n-1
+        total = 0
+        for i in range(n):
+            if l <= r:
+                for j in range(l, r + 1):
+                    total += a[i][j]
+            else:
+                for j in range(r, l+1):
+                    total += a[i][j]
+            l += 1
+            r -= 1
+        print(total)
+
+    @staticmethod
+    def solution():
+        import sys
+        sys.stdin = open('list_comp/eight.txt')
+        n = int(input())
+        a = [list(map(int, input().split())) for _ in range(n)]
+        m = int(input())
+        for i in range(m):
+            h, t, k = map(int, input().split())
+            if t == 0:
+                for _ in range(k):
+                    a[h-1].append(a[h-1].pop(0))
+            else:
+                for _ in range(k):
+                    a[h-1].insert(0, a[h-1].pop())
+
+        res = 0
+        s = 0
+        e = -1
+        for i in range(n):
+            for j in range(s, e+1):
+                res += a[i][j]
+            if i < n//2:
+                s+=1
+                e-=1
+            else:
+                s-=1
+                e+=1
+
+
 if __name__ == '__main__':
 
     one = One()
@@ -262,4 +325,7 @@ if __name__ == '__main__':
     # six.find_max_sum_from_grating()
 
     seven = Seven()
-    seven.find_sum_from_two_dimensional_array()
+    # seven.find_sum_from_two_dimensional_array()
+
+    eight = Eight()
+    # eight.hour_glass()
