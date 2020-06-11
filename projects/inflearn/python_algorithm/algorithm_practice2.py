@@ -213,6 +213,30 @@ class Six:
         print(max(sum_of_numbers, d1, d2))
 
 
+class Seven:
+
+    # 다이아몬드 printing
+    @staticmethod
+    def find_sum_from_two_dimensional_array():
+
+        import sys
+        sys.stdin = open('list_comp/seven.txt')
+        n = int(input())
+        a = [list(map(int, input().split())) for _ in range(n)]
+        res = 0
+        s = e = n//2
+        for i in range(n):
+            for j in range(s, e+1):
+                res += a[i][j]
+            if i < n//2:
+                s -= 1
+                e += 1
+            else:
+                s += 1
+                e -= 1
+        print(res)
+
+
 if __name__ == '__main__':
 
     one = One()
@@ -236,3 +260,6 @@ if __name__ == '__main__':
 
     six = Six()
     # six.find_max_sum_from_grating()
+
+    seven = Seven()
+    seven.find_sum_from_two_dimensional_array()
