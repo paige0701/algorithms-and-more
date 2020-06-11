@@ -80,6 +80,34 @@ class Two:
         print(cnt)
 
 
+class Three:
+
+    @staticmethod
+    def list_comprehension():
+
+        li = list(range(1, 21))
+        print(li)
+        import sys
+        sys.stdin = open('list_comp/three.txt', 'rt')
+        for _ in range(10):
+            x, y = map(int, input().split())
+            temp = li[x-1: y]
+            temp.reverse()
+            li = li[:x-1] + temp + li[y:]
+        print(li)
+
+    @staticmethod
+    def solution():
+        a = list(range(21))
+        import sys
+        sys.stdin = open('list_comp/three.txt', 'rt')
+        for _ in range(10):
+            s, e = map(int, input().split())
+            for i in range((e-s+1)//2):
+                a[s+i], a[e-i] = a[e-i], a[s+i]
+        a.pop(0)
+        print(a)
+
 
 if __name__ == '__main__':
 
@@ -89,4 +117,9 @@ if __name__ == '__main__':
     #     one.is_palindrome3(i)
 
     two = Two()
-    two.solution()
+    # two.solution()
+
+    three = Three()
+    # three.list_comprehension()
+
+    three.solution()
