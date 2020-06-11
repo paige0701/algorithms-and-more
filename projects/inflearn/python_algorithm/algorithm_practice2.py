@@ -109,6 +109,48 @@ class Three:
         print(a)
 
 
+class Four:
+
+    @staticmethod
+    def combine_two_list_and_sort():  # this is nlog(n)
+
+        import sys
+        sys.stdin = open('list_comp/four.txt')
+        n = input()
+        a = list(map(int, input().split()))
+        m = input()
+        b = list(map(int, input().split()))
+
+        c = a +b
+        c.sort()
+        print(c)
+
+    @staticmethod
+    def solution():  # this is O(n)
+        import sys
+        sys.stdin = open('list_comp/four.txt')
+        n = int(input())
+        a = list(map(int, input().split()))
+        m = int(input())
+        b = list(map(int, input().split()))
+        c = []
+        p1 = p2 = 0
+
+        while p1 < n and p2< m:
+            if a[p1] <= b[p2]:
+                c.append(a[p1])
+                p1 += 1
+            else:
+                c.append(b[p2])
+                p2 += 1
+
+        if p1 < n:
+            c += a[p1:]
+        if p2 < m:
+            c += b[p2:]
+        print(c)
+
+
 if __name__ == '__main__':
 
     one = One()
@@ -122,4 +164,7 @@ if __name__ == '__main__':
     three = Three()
     # three.list_comprehension()
 
-    three.solution()
+    # three.solution()
+
+    four = Four()
+    # four.solution()
