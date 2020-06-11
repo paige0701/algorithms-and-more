@@ -182,6 +182,36 @@ class Five:
         print(cnt)
 
 
+class Six:
+    @staticmethod
+    def find_max_sum_from_grating():
+
+        import sys
+        sys.stdin = open('list_comp/six.txt')
+        n = int(input())
+
+        a = [list(map(int, input().split())) for _ in range(n)]
+        print(a)
+
+        sum_of_numbers = 0
+
+        d1 = 0
+        d2 = 0
+        for i, v in enumerate(a):
+            temp = 0
+            for j, value in enumerate(v):
+                temp += a[j][i]
+            if sum_of_numbers < sum(v):
+                sum_of_numbers = sum(v)
+
+            if sum_of_numbers < temp:
+                sum_of_numbers = temp
+
+            d1 += a[i][n-i-1]
+            d2 += a[i][i]
+
+        print(max(sum_of_numbers, d1, d2))
+
 
 if __name__ == '__main__':
 
@@ -203,3 +233,6 @@ if __name__ == '__main__':
 
     five = Five()
     # five.sum_of_numbers()
+
+    six = Six()
+    # six.find_max_sum_from_grating()
