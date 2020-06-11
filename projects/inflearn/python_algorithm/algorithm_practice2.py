@@ -151,6 +151,38 @@ class Four:
         print(c)
 
 
+class Five:
+
+    @staticmethod
+    def sum_of_numbers():
+        import sys
+        sys.stdin = open('list_comp/five.txt')
+        n, m = map(int, input().split())
+        a = list(map(int, input().split()))
+        cnt = 0
+        tot = a[0]
+        lt, rt = 0, 1
+
+        while True:
+
+            if tot < m:
+                if rt < n:
+                    tot += a[rt]
+                    rt += 1
+                else:
+                    break
+
+            elif tot == m:
+                cnt += 1
+                tot -= a[lt]
+                lt += 1
+            else:
+                tot -= a[lt]
+                lt += 1
+        print(cnt)
+
+
+
 if __name__ == '__main__':
 
     one = One()
@@ -168,3 +200,6 @@ if __name__ == '__main__':
 
     four = Four()
     # four.solution()
+
+    five = Five()
+    # five.sum_of_numbers()
