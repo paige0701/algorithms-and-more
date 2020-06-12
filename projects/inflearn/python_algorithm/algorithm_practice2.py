@@ -300,6 +300,51 @@ class Eight:
                 e+=1
 
 
+class Nine:
+
+    @staticmethod
+    def find_humps():
+        import sys
+        sys.stdin = open('list_comp/nine.txt', 'rt')
+        n = int(input())
+        a = []
+        for i in range(n):
+            a.append(list(map(int, input().split())))
+            a[i].insert(0, 0)
+            a[i].append(0)
+        p = [0] * 7
+        a.insert(0, p)
+        a.append(p)
+
+        cnt = 0
+        print(a)
+        for i in range(1, n+1):
+            for j in range(1, n+1):
+                if all(k < a[i][j] for k in [a[i-1][j], a[i][j+1], a[i+1][j], a[i][j-1]]):
+                    cnt += 1
+        print(cnt)
+
+    @staticmethod
+    def solution():
+        import sys
+        sys.stdin = open('list_comp/nine.txt')
+        n = int(input())
+        a = [list(map(int, input().split())) for _ in range(n)]
+        a.insert(0, [0] * n)
+        a.append([0]*n)
+
+        dx = [-1, 0, 1, 0]
+        dy = [0, 1, 0, -1]
+        for x in a:
+            x.insert(0, 0)
+            x.append(0)
+        cnt = 0
+        for i in range(1, n+1):
+            for j in range(1, n+1):
+                if all(a[i][j] > a[i+dx[k]][j+dy[k]] for k in range(4)):
+                    cnt += 1
+
+
 if __name__ == '__main__':
 
     one = One()
@@ -329,3 +374,6 @@ if __name__ == '__main__':
 
     eight = Eight()
     # eight.hour_glass()
+
+    nine = Nine()
+    # nine.solution()
