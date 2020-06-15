@@ -374,6 +374,26 @@ class Ten:
         return True
 
 
+class Eleven:
+
+    def find_number_of_palindromes(self):
+        import sys
+        sys.stdin=open('list_comp/eleven.txt')
+        board = [list(map(int, input().split())) for _ in range(7)]
+        cnt = 0
+        for i in range(3):
+            for j in range(7):
+                temp = board[j][i:i+5]
+                if temp == temp[::-1]:
+                    cnt += 1
+                for k in range(2):
+                    if board[i+k][j] != board[i+5-k-1][j]:
+                        break
+                else:
+                    cnt += 1
+        print(cnt)
+
+
 if __name__ == '__main__':
 
     one = One()
@@ -408,4 +428,7 @@ if __name__ == '__main__':
     # nine.solution()
 
     ten = Ten()
-    print(ten.check_sudoku())
+    # print(ten.check_sudoku())
+
+    eleven = Eleven()
+    eleven.find_number_of_palindromes()
