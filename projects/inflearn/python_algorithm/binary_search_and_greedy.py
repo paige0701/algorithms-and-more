@@ -75,9 +75,11 @@ class Three:
         a = list(map(int, input().split()))
         lt = 1
         rt = sum(a)
+        maxx = max(a)
         while lt <= rt:
             mid = (lt+rt)//2
-            if self.count(mid, a) <= m:
+            # one cd capacity must be bigger than biggest music
+            if mid >= maxx and self.count(mid, a) <= m:
                 res = mid
                 rt = mid-1
             else:
