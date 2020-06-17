@@ -87,6 +87,37 @@ class Three:
         print(res)
 
 
+class Four:
+
+    def count(self, mid, li):
+
+        res = 1
+        ep = li[0]
+        for i in range(1, len(li)):
+            if li[i] - ep >= mid:
+                res += 1
+                ep = li[i]
+        return res
+
+    def solution(self):
+        import sys
+        sys.stdin = open('bs_and_greedy/four.txt')
+        n, c = map(int, input().split())
+        a = [int(input()) for _ in range(n)]
+        a.sort()
+
+        lt = 1
+        rt = a[n-1]
+        while lt <= rt:
+            mid = (lt+rt) // 2
+            if self.count(mid, a) >= c:
+                res = mid
+                lt = mid + 1
+            else:
+                rt = mid-1
+        print(res)
+
+
 if __name__ == '__main__':
     one = One()
     # one.binary_search()
@@ -95,4 +126,7 @@ if __name__ == '__main__':
     # two.decision_algorithm()
 
     three = Three()
-    three.solution()
+    # three.solution()
+
+    four = Four()
+    four.solution()
