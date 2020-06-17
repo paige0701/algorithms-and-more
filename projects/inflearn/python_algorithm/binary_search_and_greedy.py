@@ -118,6 +118,37 @@ class Four:
         print(res)
 
 
+class Five:
+    def sort_meeting_room(self):
+
+        # 끝나는 시간으로 정렬을 해야한다!!!
+
+        import sys
+        sys.stdin = open('bs_and_greedy/five.txt')
+        n = int(input())
+        li = []
+        for i in range(n):
+            a, b = map(int, input().split())
+            li.append((a, b))
+        li.sort(key=lambda x: x[1])
+
+        # cnt = 1
+        # r = li[0][1]
+        # for i in range(1, len(li)):
+        #     if li[i][0] >= r:
+        #         r = li[i][1]
+        #         print(li[i])
+        #         cnt += 1
+        # print(cnt)
+        cnt = 0
+        et = 0
+        for s, e in li:
+            if s >= et:
+                et = e
+                cnt += 1
+        print(cnt)
+
+
 if __name__ == '__main__':
     one = One()
     # one.binary_search()
@@ -129,4 +160,7 @@ if __name__ == '__main__':
     # three.solution()
 
     four = Four()
-    four.solution()
+    # four.solution()
+
+    five = Five()
+    five.sort_meeting_room()
