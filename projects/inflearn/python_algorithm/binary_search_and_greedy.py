@@ -148,8 +148,10 @@ class Five:
                 cnt += 1
         print(cnt)
 
+
 class Six:
-    def solution(self):
+    @staticmethod
+    def solution():
         import sys
         sys.stdin = open('bs_and_greedy/six.txt')
         n = int(input())
@@ -167,7 +169,8 @@ class Six:
                 cnt += 1
         print(cnt)
 
-    def solution2(self):
+    @staticmethod
+    def solution2():
         import sys
         sys.stdin = open('bs_and_greedy/six.txt')
         n = int(input())
@@ -184,6 +187,42 @@ class Six:
                 cnt += 1
         print(cnt)
 
+
+class Seven:
+    def solution(self):
+        import sys
+        sys.stdin = open('bs_and_greedy/seven.txt')
+        l = int(input())
+        a = list(map(int, input().split()))
+        m = int(input())
+        a.sort()
+        print(a)
+        for i in range(m):
+            b = max(a)
+            a[a.index(b)] = a[a.index(b)]-1
+            s = min(a)
+            a[a.index(s)] = a[a.index(s)] + 1
+
+        print(a)
+        b = max(a)
+        s = min(a)
+
+        print(b-s)
+
+    @staticmethod
+    def solution2():
+        import sys
+        sys.stdin = open('bs_and_greedy/seven.txt')
+        L = int(input())
+        a = list(map(int, input().split()))
+        m = int(input())
+        a.sort()
+        for _ in range(m):
+            a[0] += 1
+            a[-1] -= 1
+            a.sort()
+
+        print(a[-1] - a[0])
 
 
 if __name__ == '__main__':
@@ -203,4 +242,7 @@ if __name__ == '__main__':
     # five.sort_meeting_room()
 
     six = Six()
-    six.solution2()
+    # six.solution2()
+
+    seven = Seven()
+    seven.solution2()
