@@ -148,6 +148,43 @@ class Five:
                 cnt += 1
         print(cnt)
 
+class Six:
+    def solution(self):
+        import sys
+        sys.stdin = open('bs_and_greedy/six.txt')
+        n = int(input())
+        l = []
+        for i in range(n):
+            h, w = map(int, input().split())
+            l.append((h, w))
+        l.sort(reverse=True)
+        cnt = 1
+        for i in range(1,n):
+            for j in range(i-1, -1, -1):
+                if l[i][1] < l[j][1]:
+                    break
+            else:
+                cnt += 1
+        print(cnt)
+
+    def solution2(self):
+        import sys
+        sys.stdin = open('bs_and_greedy/six.txt')
+        n = int(input())
+        l = []
+        largest = 0
+        for i in range(n):
+            h, w = map(int, input().split())
+            l.append((h, w))
+        l.sort(reverse=True)
+        cnt = 0
+        for i, v in l:
+            if largest < v:
+                largest = v
+                cnt += 1
+        print(cnt)
+
+
 
 if __name__ == '__main__':
     one = One()
@@ -163,4 +200,7 @@ if __name__ == '__main__':
     # four.solution()
 
     five = Five()
-    five.sort_meeting_room()
+    # five.sort_meeting_room()
+
+    six = Six()
+    six.solution2()
