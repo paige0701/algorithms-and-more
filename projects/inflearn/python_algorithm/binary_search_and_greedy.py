@@ -323,10 +323,29 @@ class Nine:
                 if tmp[0][1] == 'L' :
                     lt += 1
                 else:
-                    rt -=1
+                    rt -= 1
 
             tmp.clear()
         print(res)
+
+
+class Ten:
+    @staticmethod
+    def reverse_sequence():
+        import sys
+        sys.stdin = open('bs_and_greedy/ten.txt')
+        n = int(input())
+        a = list(map(int, input().split()))
+        seq = [0]*n
+        for i in range(n):
+            for j in range(n):
+                if a[i] == 0 and seq[j] == 0:
+                    seq[j] = i+1
+                    break
+                elif seq[j] == 0:
+                    a[i] -= 1
+
+        print(seq)
 
 
 if __name__ == '__main__':
@@ -355,4 +374,7 @@ if __name__ == '__main__':
     # eight.solution3()
 
     nine = Nine()
-    nine.solution()
+    # nine.solution()
+
+    ten = Ten()
+    ten.reverse_sequence()
