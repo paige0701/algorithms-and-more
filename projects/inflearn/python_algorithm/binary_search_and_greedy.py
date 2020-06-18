@@ -225,6 +225,77 @@ class Seven:
         print(a[-1] - a[0])
 
 
+class Eight:
+    @staticmethod
+    def solution():
+        import sys
+        sys.stdin = open('bs_and_greedy/eight.txt')
+        N, M = map(int, (input().split()))
+        a = list(map(int, input().split()))
+        a.sort()
+        lt = 0
+        rt = N-1
+        cnt = 0
+        while lt <= rt:
+
+            if a[lt] + a[rt] > M :
+                cnt += 1
+                rt -= 1
+            elif a[lt] + a[rt] <= M:
+                cnt += 1
+                rt-=1
+                lt+=1
+
+        print(cnt)
+
+    @staticmethod
+    def solution2():
+        import sys
+        sys.stdin = open('bs_and_greedy/eight.txt')
+        n, limit = map(int, (input().split()))
+        p = list(map(int, input().split()))
+        p.sort()
+        cnt = 0
+        while p:
+
+            if len(p) == 1:
+                cnt+= 1
+                break
+
+            if p[0] + p[-1] > limit:
+                p.pop()
+                cnt += 1
+            else:
+                p.pop(0)
+                p.pop()
+                cnt += 1
+        print(cnt)
+
+    @staticmethod
+    def solution3():  # .pop(0) 을 하면 비 효율적이기 떄문에 list 대신 deque를 쓴다.
+        from collections import deque
+        import sys
+        sys.stdin = open('bs_and_greedy/eight.txt')
+        n, limit = map(int, (input().split()))
+        p = list(map(int, input().split()))
+        p.sort()
+        p = deque(p)
+        cnt = 0
+        while p:
+            if len(p) == 1:
+                cnt += 1
+                break
+
+            if p[0] + p[-1] > limit:
+                p.pop()
+                cnt += 1
+            else:
+                p.popleft()
+                p.pop()
+                cnt += 1
+        print(cnt)
+
+
 if __name__ == '__main__':
     one = One()
     # one.binary_search()
@@ -245,4 +316,7 @@ if __name__ == '__main__':
     # six.solution2()
 
     seven = Seven()
-    seven.solution2()
+    # seven.solution2()
+
+    eight = Eight()
+    eight.solution3()
