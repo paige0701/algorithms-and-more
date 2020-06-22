@@ -13,11 +13,34 @@ class One:
                 m -= 1
             stack.append(x)
 
-        if m!=0:
+        if m != 0:
             stack = stack[:-m]
         print(stack)
 
 
+class Two:
+    def find_metal_sticks(self):
+        import sys
+        sys.stdin = open('stack_queue_hash_heap/two.txt')
+        n = input()
+        stack = [n[1]]
+        sum = 0
+        for i in range(1, len(n)):
+
+            if n[i] == ')' and n[i-1] == '(':
+                stack.pop()
+                sum += len(stack)
+            elif n[i] == ')':
+                stack.pop()
+                sum += 1
+            else:
+                stack.append(n[i])
+        print(sum)
+
+
 if __name__ == '__main__':
     one = One()
-    one.get_biggest_number_using_stack()
+    # one.get_biggest_number_using_stack()
+
+    two = Two()
+    two.find_metal_sticks()
