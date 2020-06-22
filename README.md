@@ -2,8 +2,17 @@
 
 
 #### Websites
-* Programmers.co.kr
+* programmers.co.kr
 * leetcode.com
+* khan academy
+* inflearn
+* hackerank
+* MIT 6006
+* coursera
+
+#### Books
+* Cracking the coding interview
+* 모두의 알고리즘
 
 #### Languages
 * python3
