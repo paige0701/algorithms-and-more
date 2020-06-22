@@ -4,6 +4,8 @@
 #### Websites
 * Programmers.co.kr
 * leetcode.com
+* khan academy
+* inflearn
 
 #### Languages
 * python3
