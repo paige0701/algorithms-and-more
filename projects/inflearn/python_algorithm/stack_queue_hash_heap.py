@@ -55,9 +55,54 @@ class Two:
         print(total)
 
 
+class Three:
+
+
+    @staticmethod
+    def get_number_by_operand(op):
+        res = {'-': 1, '+': 1, '*': 2, '/': 2}
+        return res[op]
+
+    @staticmethod
+    def postfix_exp():
+        import sys
+        sys.stdin = open('stack_queue_hash_heap/three.txt')
+        a = input()
+        res = ''
+        stack = []
+        for x in a:  # 숫자
+            if x.isdecimal():
+                res += x
+            else:  # 연산자
+
+                if x == '(':
+                    stack.append(x)
+                elif x == '*' or x == '/':
+                    while stack and (stack[-1] == '*' or stack[-1] == '/'):
+                        res += stack.pop()
+                    stack.append(x)
+
+                elif x == '+' or x == '-':
+                    while stack and stack[-1] != '(':
+                        res += stack.pop()
+                    stack.append(x)
+                elif x == ')':
+                    while stack and stack[-1] != '(':
+                        res += stack.pop()
+                    stack.pop()
+
+        while stack:
+            res += stack.pop()
+
+        print(res)
+
+
 if __name__ == '__main__':
     one = One()
     # one.get_biggest_number_using_stack()
 
     two = Two()
-    two.solution()
+    # two.solution()
+
+    three = Three()
+    three.postfix_exp()
