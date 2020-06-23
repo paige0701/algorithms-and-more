@@ -54,6 +54,26 @@ class Two:
                     total += 1
         print(total)
 
+    @staticmethod
+    def solution2():
+        import sys
+        sys.stdin = open('stack_queue_hash_heap/two.txt')
+        n = input()
+        answer = 0
+        sticks = 0
+        rasor_to_zero = n.replace('()', '0')
+
+        for i in rasor_to_zero:
+            if i == '(':
+                sticks += 1
+            elif i == '0':
+                answer += sticks
+            else:
+                sticks -= 1
+                answer += 1
+
+        return answer
+
 
 class Three:
 
