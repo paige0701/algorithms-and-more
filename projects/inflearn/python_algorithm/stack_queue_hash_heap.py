@@ -97,6 +97,36 @@ class Three:
         print(res)
 
 
+class Four:
+
+    @staticmethod
+    def calculate(operator, num1, num2):
+        if operator == '+':
+            return num1 + num2
+        elif operator == '-':
+            return num1 - num2
+        elif operator == '*':
+            return num1 * num2
+        else:
+            return num1//num2
+
+    def solve_postfix_exp(self):
+        import sys
+        sys.stdin = open('stack_queue_hash_heap/four.txt')
+        a = list(input())
+        stack = []
+
+        for i in a:
+            if i.isdecimal():
+                stack.append(int(i))
+            else:
+                b = stack.pop()
+                a = stack.pop()
+                r = self.calculate(i, a, b)
+                stack.append(r)
+        print(stack[0])
+
+
 if __name__ == '__main__':
     one = One()
     # one.get_biggest_number_using_stack()
@@ -105,4 +135,7 @@ if __name__ == '__main__':
     # two.solution()
 
     three = Three()
-    three.postfix_exp()
+    # three.postfix_exp()
+
+    four = Four()
+    four.solve_postfix_exp()
