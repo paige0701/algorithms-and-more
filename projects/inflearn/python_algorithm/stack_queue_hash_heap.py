@@ -147,6 +147,43 @@ class Four:
         print(stack[0])
 
 
+class Five:
+    @staticmethod
+    def save_princess():
+        from collections import deque
+        n = 8
+        k = 3
+        deq = deque([i for i in range(1, n+1)])
+
+        print(deq)
+
+        while len(deq) > 1:
+            i = 0
+            while i < k:
+                if i == k-1:
+                    deq.popleft()
+                else:
+                    deq.append(deq.popleft())
+                i += 1
+        print(deq)
+
+    @staticmethod
+    def solution():
+        from collections import deque
+        n = 8
+        k = 3
+        dq = list(range(1, n+1))
+        dq = deque(dq)
+        while dq:
+            for _ in range(k-1):
+                cur = dq.popleft()
+                dq.append(cur)
+            dq.popleft()
+            if len(dq) == 1:
+                break
+        print(dq)
+
+
 if __name__ == '__main__':
     one = One()
     # one.get_biggest_number_using_stack()
@@ -158,4 +195,7 @@ if __name__ == '__main__':
     # three.postfix_exp()
 
     four = Four()
-    four.solve_postfix_exp()
+    # four.solve_postfix_exp()
+
+    five = Five()
+    five.solution()
