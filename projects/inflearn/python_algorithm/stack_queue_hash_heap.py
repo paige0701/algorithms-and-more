@@ -184,6 +184,27 @@ class Five:
         print(dq)
 
 
+class Six:
+    @staticmethod
+    def solution():
+        from collections import deque
+        n, m = 5, 0
+        d = [1, 1, 9, 1, 1, 1]
+        d = [(i, v) for i, v in enumerate(d)]
+        print(d)
+        d = deque(d)
+        res = 0
+        while True:
+            cur = d.popleft()
+            if any(cur[1] < x[1] for x in d):
+                d.append(cur)
+            else:
+                res += 1
+                if cur[0] == m:
+                    break
+        print(res)
+
+
 if __name__ == '__main__':
     one = One()
     # one.get_biggest_number_using_stack()
@@ -198,4 +219,7 @@ if __name__ == '__main__':
     # four.solve_postfix_exp()
 
     five = Five()
-    five.solution()
+    # five.solution()
+
+    six = Six()
+    six.solution()
