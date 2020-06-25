@@ -205,6 +205,39 @@ class Six:
         print(res)
 
 
+class Seven:
+
+    def solution(self):
+        m = 'AFC'
+        s = ['AFFDCCFF', 'FGCDAB', 'CTSBDEA']
+
+        for i in range(len(s)):
+            q = []
+            for j in s[i]:
+                if j in m and j not in q:
+                    q.append(j)
+            if m == ''.join(q):
+                print('yes')
+            else:
+                print('no')
+
+    def solution2(self):
+        from collections import deque
+        need = 'AFC'
+        s = ['AFFDCCFF', 'FGCDAB', 'CTSBDEA']
+        for i in range(len(s)):
+            dq = deque(need)
+            for x in s[i]:
+                if x in dq:
+                    if x != dq.popleft():
+                        print('no')
+                        break
+            else:
+                if len(dq) == 0:
+                    print('yes')
+                else:
+                    print('no')
+
 if __name__ == '__main__':
     one = One()
     # one.get_biggest_number_using_stack()
@@ -223,3 +256,6 @@ if __name__ == '__main__':
 
     six = Six()
     six.solution()
+
+    seven = Seven()
+    seven.solution2()
