@@ -278,6 +278,49 @@ class Eight:
                 break
 
 
+class Nine:
+    @staticmethod
+    def anagram():
+        a = 'AbaAeCe'
+        b = 'baeeACA'
+        res = dict()
+        for i in range(len(a)):
+            if a[i] not in res:
+                res[a[i]] = 1
+            else:
+                res[a[i]] += 1
+
+            if b[i] in res:
+                res[b[i]] -=1
+            else:
+                res[b[i]] = -1
+
+        print(all(x == 0 for x in res.values()))
+
+    @staticmethod
+    def solution():
+        a = 'AbaAeCe'
+        b = 'baeeACA'
+        str1 = dict()
+        str2 = dict()
+
+        for x in a:
+            str1[x] = str1.get(x, 0) + 1  # dictionary 에서 str1[x]가 없어면 0을 넣고 아니면 +1
+        for x in b:
+            str2[x] = str2.get(x, 0) + 1
+
+        for i in str1.keys():
+            if i in str2.keys():
+                if str1[i] != str2[i]:
+                    print('No')
+                    break
+            else:
+                print('No')
+                break
+        else:
+            print('Yes')
+
+
 if __name__ == '__main__':
     one = One()
     # one.get_biggest_number_using_stack()
@@ -301,4 +344,7 @@ if __name__ == '__main__':
     # seven.solution2()
 
     eight = Eight()
-    eight.solution2()
+    # eight.solution2()
+
+    nine = Nine()
+    nine.solution()
