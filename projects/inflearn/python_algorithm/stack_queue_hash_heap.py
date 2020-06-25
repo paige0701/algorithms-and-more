@@ -238,6 +238,46 @@ class Seven:
                 else:
                     print('no')
 
+
+class Eight:
+    def solution(self):
+        import sys
+        from collections import deque
+        sys.stdin = open('stack_queue_hash_heap/eight.txt')
+        n = int(input())
+        words = deque()
+        used = []
+        for i in range(n):
+            words.append(input())
+
+        for i in range(n-1):
+            used.append(input())
+
+        while words:
+            p = words.popleft()
+            if p not in used:
+                print(p)
+                break
+
+    def solution2(self):
+        import sys
+        sys.stdin = open('stack_queue_hash_heap/eight.txt')
+        n = int(input())
+        p = dict()
+        for i in range(n):
+            word = input()
+            p[word] = 1
+
+        for i in range(n-1):
+            word = input()
+            p[word] = 0
+
+        for key, val in p.items():
+            if val == 1:
+                print(key)
+                break
+
+
 if __name__ == '__main__':
     one = One()
     # one.get_biggest_number_using_stack()
@@ -255,7 +295,10 @@ if __name__ == '__main__':
     # five.solution()
 
     six = Six()
-    six.solution()
+    # six.solution()
 
     seven = Seven()
-    seven.solution2()
+    # seven.solution2()
+
+    eight = Eight()
+    eight.solution2()
