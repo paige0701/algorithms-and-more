@@ -321,6 +321,30 @@ class Nine:
             print('Yes')
 
 
+class Ten:
+
+    @staticmethod
+    def min_heap():
+        import sys
+        import heapq as hq
+        sys.stdin = open('stack_queue_hash_heap/ten.txt')
+        a = []
+        while True:
+            n = int(input())
+            if n == -1:
+                break
+            if n == 0:
+                if len(a) == 0:
+                    print(-1)
+                else:
+                    print(hq.heappop(a))
+
+            else:
+                hq.heappush(a, n)
+
+        print(hq)
+
+
 if __name__ == '__main__':
     one = One()
     # one.get_biggest_number_using_stack()
@@ -347,4 +371,7 @@ if __name__ == '__main__':
     # eight.solution2()
 
     nine = Nine()
-    nine.solution()
+    # nine.solution()
+
+    ten = Ten()
+    ten.min_heap()
