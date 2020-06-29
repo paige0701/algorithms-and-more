@@ -82,6 +82,25 @@ class Four:
             self.DFS(v + 1, total)
 
 
+class Five:
+
+    total = 100000000
+    a = [27, 567,999,234, 50, 567, 123,4734, 754, 84, 35,1353, 76, 464,4634, 65, 89 , 3553, 59, 38, 4135]
+    diff = -21167888
+
+    def solution(self, n, tot, tsum):
+
+        if tot + (sum(self.a)-tsum) < self.diff: # this is important less time
+            return
+
+        if n == len(self.a):
+            if self.total > tot > self.diff:
+                self.diff = tot
+
+        else:
+            self.solution(n+1, tot + self.a[n], tsum+self.a[n])
+            self.solution(n+1, tot, tsum+self.a[n])
+
 
 if __name__ == '__main__':
     one = One()
@@ -98,4 +117,9 @@ if __name__ == '__main__':
     # three.DFS(1)
 
     four = Four()
-    four.DFS(0, 0)
+    # four.DFS(0, 0)
+
+
+    five = Five()
+    five.solution(0,0, 0)
+    print(five.diff)
