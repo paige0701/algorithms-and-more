@@ -141,6 +141,32 @@ class Eight:
                     self.ch[i] = 0
 
 
+class Nine:
+    n = 4
+    m = 16
+    res = [0] * n
+    ch = [0] * (n+1)
+    t = [1, 3, 3, 1]
+
+    def solution(self, L):
+        if L == self.n:
+            t = 0
+            for i in range(len(self.res)):
+                t += (self.res[i] * self.t[i])
+            if t == self.m:
+                print(''.join([str(i) for i in self.res]))
+                import sys
+                sys.exit(0)
+
+        else:
+            for i in range(1, self.n+1):
+                if self.ch[i] == 0:
+                    self.ch[i] = 1
+                    self.res[L] = i
+                    self.solution(L+1)
+                    self.ch[i] = 0
+
+
 if __name__ == '__main__':
     one = One()
     # one.to_binary2(11)
@@ -179,6 +205,9 @@ if __name__ == '__main__':
     # print(seven.coinChange([186,419,83,408], 6249))
 
     m = 2
-    n = 3
-    eight = Eight()
-    eight.solution(0)
+    # n = 3
+    # eight = Eight()
+    # eight.solution(0)
+
+    nine = Nine()
+    nine.solution(0)
