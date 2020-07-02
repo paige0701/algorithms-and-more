@@ -121,6 +121,26 @@ class Six:
                 self.solution(l+1)
 
 
+class Eight:
+    m = 2
+    n = 3
+    res = [0] * n
+    ch = [0] * (n+1)
+
+    def solution(self, L):
+        if L == self.m:
+            for i in range(L):
+                print(self.res[i], end='')
+            print()
+        else:
+            for i in range(1, self.n+1):
+                if self.ch[i] == 0:
+                    self.ch[i] = 1
+                    self.res[L] = i
+                    self.solution(L+1)
+                    self.ch[i] = 0
+
+
 if __name__ == '__main__':
     one = One()
     # one.to_binary2(11)
@@ -144,5 +164,21 @@ if __name__ == '__main__':
     # print(five.diff)
 
     six = Six()
-    six.solution(0)
-    print(six.cnt)
+    # six.solution(0)
+    # print(six.cnt)
+
+    # seven = Seven()
+
+    a = [419, 408, 186, 83]
+    a.sort(reverse=True)
+    money = 6249
+    res = 21470000
+    # print(seven.solution(len(a)-1))
+    # seven.DFS(0,0)
+    # print(res)
+    # print(seven.coinChange([186,419,83,408], 6249))
+
+    m = 2
+    n = 3
+    eight = Eight()
+    eight.solution(0)
