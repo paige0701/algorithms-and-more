@@ -102,6 +102,25 @@ class Five:
             self.solution(n+1, tot, tsum+self.a[n])
 
 
+class Six:
+
+    n, m = 3, 2
+    result = [0] * n
+    cnt = 0
+
+    def solution(self, l):
+        if l == self.m:
+            for i in range(self.m):
+                print(self.result[i], end=' ')
+            print()
+            self.cnt += 1
+        else:
+            for i in range(1, self.n+1):
+
+                self.result[l] = i
+                self.solution(l+1)
+
+
 if __name__ == '__main__':
     one = One()
     # one.to_binary2(11)
@@ -120,6 +139,10 @@ if __name__ == '__main__':
     # four.DFS(0, 0)
 
 
-    five = Five()
-    five.solution(0,0, 0)
-    print(five.diff)
+    # five = Five()
+    # five.solution(0,0, 0)
+    # print(five.diff)
+
+    six = Six()
+    six.solution(0)
+    print(six.cnt)
