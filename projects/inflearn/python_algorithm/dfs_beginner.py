@@ -193,6 +193,23 @@ class Nine:
                     self.ch[i] = 0
 
 
+class Ten:
+    n, m = 4, 2
+    res = [0] * m
+    cnt = 0
+    def solution(self, L, s):
+        if L >= m:
+            for i in self.res:
+                print(i, end='')
+            print()
+            self.cnt+=1
+        else:
+            for i in range(s, self.n+1):
+                self.res[L] = i
+                self.solution(L+1, i+1)
+
+
+
 if __name__ == '__main__':
     one = One()
     # one.to_binary2(11)
@@ -237,4 +254,8 @@ if __name__ == '__main__':
 
     nine = Nine()
     # nine.solution(0)
-    nine.solution2(0,0)
+    # nine.solution2(0,0)
+
+    ten = Ten()
+    ten.solution(0,1)
+    print(ten.cnt)
