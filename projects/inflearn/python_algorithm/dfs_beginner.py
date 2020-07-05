@@ -167,6 +167,32 @@ class Nine:
                     self.ch[i] = 0
 
 
+    n, f = 4, 16
+    p = [0] * n
+    b = [1] * n
+    ch = [0] * (n+1)
+
+    #  TODO: 1,3,3,1 이항계수 구하는 법 !! 주용함
+    for i in range(1, n):
+        b[i] = b[i - 1] * (n - i) // i
+
+    def solution2(self, L, sum):
+
+        if L == self.n and sum == self.f:
+            for x in self.p:
+                print(x, end=' ')
+            import sys
+            sys.exit(0)
+
+        else:
+            for i in range(1, self.n+1):
+                if self.ch[i] == 0:
+                    self.ch[i] = 1
+                    self.p[L] = i
+                    self.solution2(L+1, sum + (self.p[L] * self.b[L]))
+                    self.ch[i] = 0
+
+
 if __name__ == '__main__':
     one = One()
     # one.to_binary2(11)
@@ -210,4 +236,5 @@ if __name__ == '__main__':
     # eight.solution(0)
 
     nine = Nine()
-    nine.solution(0)
+    # nine.solution(0)
+    nine.solution2(0,0)
