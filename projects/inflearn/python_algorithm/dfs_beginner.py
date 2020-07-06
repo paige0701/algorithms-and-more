@@ -209,6 +209,21 @@ class Ten:
                 self.solution(L+1, i+1)
 
 
+class Eleven:
+    n, k, m = 5, 3, 6
+    a = 2, 4, 5, 8, 12
+    res = [0] * n
+    cnt = 0
+
+    def solution(self, L, s, total):
+        if L == self.k:
+            if total % self.m == 0:
+                self.cnt += 1
+        else:
+            for i in range(s, self.n):
+                self.res[L] = self.a[i]
+                self.solution(L+1, i+1, total+self.a[i])
+
 
 if __name__ == '__main__':
     one = One()
@@ -257,5 +272,9 @@ if __name__ == '__main__':
     # nine.solution2(0,0)
 
     ten = Ten()
-    ten.solution(0,1)
-    print(ten.cnt)
+    # ten.solution(0,1)
+    # print(ten.cnt)
+
+    el = Eleven()
+    el.solution(0, 0, 0)
+    print(el.cnt)
