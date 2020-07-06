@@ -176,6 +176,7 @@ class Nine:
     for i in range(1, n):
         b[i] = b[i - 1] * (n - i) // i
 
+    # TODO: itertools.permutaions
     def solution2(self, L, sum):
 
         if L == self.n and sum == self.f:
@@ -214,6 +215,11 @@ class Eleven:
     a = 2, 4, 5, 8, 12
     res = [0] * n
     cnt = 0
+
+    # find combinations using itertools
+    import itertools  # combinations
+    # for x in itertools.combinations(a, k):
+
 
     def solution(self, L, s, total):
         if L == self.k:
