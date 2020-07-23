@@ -1,6 +1,3 @@
-from idlelib.tree import TreeNode
-
-
 def DFS(L, sum):
     global res
     if L == n:
